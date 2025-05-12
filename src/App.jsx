@@ -85,6 +85,19 @@ export default function App() {
         ))}
       </Grid>
       <Button onClick={signOut}>Sign Out</Button>
+
+      <Scheduler
+      data={schedulerData}
+    >
+      <ViewState
+        currentDate={currentDate}
+      />
+      <DayView
+        startDayHour={9}
+        endDayHour={14}
+      />
+      <Appointments />
+    </Scheduler>
       
     </Flex>
 
