@@ -1,3 +1,4 @@
+import 'devextreme/dist/css/dx.light.css';
 import { useState, useEffect } from "react";
 import {
   Button,
@@ -13,9 +14,10 @@ import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
-import { Scheduler, DayView, Appointments,} from "@devexpress/dx-react-scheduler";
+import { Scheduler } from 'devextreme-react/scheduler';
 
-import { ViewState } from "@devexpress/dx-react-scheduler";
+
+
 /**
  * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
  */
@@ -86,18 +88,9 @@ export default function App() {
       </Grid>
       <Button onClick={signOut}>Sign Out</Button>
 
-      <Scheduler
-      data={schedulerData}
-    >
-      <ViewState
-        currentDate={currentDate}
-      />
-      <DayView
-        startDayHour={9}
-        endDayHour={14}
-      />
-      <Appointments />
-    </Scheduler>
+      <Scheduler id="scheduler">
+            {/* Configuration goes here */}
+        </Scheduler>
       
     </Flex>
 
