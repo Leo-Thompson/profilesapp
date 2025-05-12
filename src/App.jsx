@@ -7,11 +7,17 @@ import {
   Grid,
   Divider,
 } from "@aws-amplify/ui-react";
+import Paper from '@mui/material/Paper';
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
+import {Scheduler,
+  DayView,
+  Appointments,
+} from '@devexpress/dx-react-scheduler-material-ui';
+import { ViewState } from "@devexpress/dx-react-scheduler";
 /**
  * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
  */
@@ -21,7 +27,15 @@ const client = generateClient({
   authMode: "userPool",
 });
 
+
 export default function App() {
+
+  const currentDate = '2018-11-01';
+  const schedulerData = [
+    { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
+    { startDate: '2018-11-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
+];
+
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
 
@@ -73,6 +87,24 @@ export default function App() {
         ))}
       </Grid>
       <Button onClick={signOut}>Sign Out</Button>
+      <Paper>
+    <Scheduler
+      data={schedulerData}
+    >
+      <ViewState
+        currentDate={currentDate}
+      />
+      <DayView
+        startDayHour={9}
+        endDayHour={14}
+      />
+      <Appointments />
+    </Scheduler>
+  </Paper>
     </Flex>
+
+    
+
+
   );
 }
