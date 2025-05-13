@@ -14,8 +14,7 @@ import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
-import { Scheduler, AppointmentDragging,  SchedulerTypes } from 'devextreme-react/scheduler';
-import Draggable, { DraggableTypes } from 'devextreme-react/draggable';
+import { Scheduler } from 'devextreme-react/scheduler';
 
 
 
@@ -29,7 +28,7 @@ const client = generateClient({
 });
 
 
-export default function  App()  {
+export default function App() {
 
   const currentDate = '2018-11-01';
   const schedulerData = [
@@ -48,15 +47,6 @@ export default function  App()  {
     const { data: profiles } = await client.models.UserProfile.list();
     setUserProfiles(profiles);
   }
-  this.schedulerRef = React.createRef;
-
-  this.addAppointment = () => {
-    this.schedulerRef.current.instance().addAppointment({
-      text: "Website Re-Design Plan",
-                startDate: new Date("2025-05-13T09:30:00.000Z"),
-                endDate: new Date("2025-05-13T11:30:00.000Z")
-    });
-  };
 
   return (
     <Flex
@@ -97,12 +87,10 @@ export default function  App()  {
         ))}
       </Grid>
       <Button onClick={signOut}>Sign Out</Button>
-      <React.Fragment>
-        <Scheduler id="scheduler" dataSource = {schedulerData} ref = {this.schedulerRef}>
+
+      <Scheduler id="scheduler">
             {/* Configuration goes here */}
-          </Scheduler>
-          <Button text = "add" onClick={this.addAppointment}></Button>
-        </React.Fragment>
+        </Scheduler>
       
     </Flex>
 
