@@ -93,7 +93,7 @@ export default function  App()  {
             <View>
               <Heading level="3">{userprofile.email}</Heading>
               
-                <Scheduler id="scheduler" dataSource = {schedulerData}>
+                <Scheduler id="scheduler" dataSource = {schedulerData} ref = {this.schedulerRef}>
                   {/* Configuration goes here */}
                 </Scheduler>
                 
