@@ -48,14 +48,9 @@ export default function  App()  {
     const { data: profiles } = await client.models.UserProfile.list();
     setUserProfiles(profiles);
   }
-  this.schedulerRef = React.createRef;
+  
 
-  this.addAppointment = () => {
-    this.schedulerRef.current.instance().addAppointment({
-      text: "Website Re-Design Plan",
-                startDate: new Date("2025-05-13T09:30:00.000Z"),
-                endDate: new Date("2025-05-13T11:30:00.000Z")
-    });
+  
   };
 
   return (
