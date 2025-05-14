@@ -32,7 +32,7 @@ const client = generateClient({
 
 export default function App() {
 
-  const currentDate = '2018-11-01';
+  const currentDate = new Date();
   const views = ['week', 'month'];
   const schedulerData = [
     { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
