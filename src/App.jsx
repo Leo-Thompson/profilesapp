@@ -86,11 +86,12 @@ export default function App() {
           </Flex>
         ))}
       </Grid>
-      <Button onClick={signOut}>Sign Out</Button>
-
       <Scheduler id="scheduler">
             {/* Configuration goes here */}
         </Scheduler>
+      <Button onClick={signOut}>Sign Out</Button>
+
+      
       
     </Flex>
 
