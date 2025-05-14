@@ -57,6 +57,7 @@ export default function App() {
       width="70%"
       margin="0 auto"
     >
+      {/*}
       <Heading level={1}>My Profile</Heading>
 
       <Divider />
@@ -94,11 +95,22 @@ export default function App() {
        defaultCurrentDate={currentDate}
        height={730}
        startDayHour={9}>
-            {/* Configuration goes here */}
+            
         </Scheduler>
       <Button onClick={signOut}>Sign Out</Button>
 
-      
+      {*/}
+
+      <Scheduler id="scheduler"
+       timeZone="America/Los_Angeles"
+       dataSource={schedulerData}
+       views={views}
+       defaultCurrentView="week"
+       defaultCurrentDate={currentDate}
+       height={730}
+       startDayHour={9}>
+            
+        </Scheduler>
       
     </Flex>
 
