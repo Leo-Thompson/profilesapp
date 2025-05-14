@@ -14,7 +14,7 @@ import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
-import { Scheduler } from 'devextreme-react/scheduler';
+import  Scheduler, { Resource }  from 'devextreme-react/scheduler';
 
 
 
@@ -86,7 +86,14 @@ export default function App() {
           </Flex>
         ))}
       </Grid>
-      <Scheduler id="scheduler">
+      <Scheduler id="scheduler"
+       timeZone="America/Los_Angeles"
+       dataSource={schedulerData}
+       views={views}
+       defaultCurrentView="week"
+       defaultCurrentDate={currentDate}
+       height={730}
+       startDayHour={9}>
             {/* Configuration goes here */}
         </Scheduler>
       <Button onClick={signOut}>Sign Out</Button>
