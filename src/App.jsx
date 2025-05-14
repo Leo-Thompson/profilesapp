@@ -15,6 +15,7 @@ import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import  Scheduler, { Resource }  from 'devextreme-react/scheduler';
+import { data } from './data.js'
 
 
 
@@ -103,7 +104,7 @@ export default function App() {
 
       <Scheduler id="scheduler"
        timeZone="America/Los_Angeles"
-       dataSource={schedulerData}
+       dataSource={data}
        views={views}
        defaultCurrentView="week"
        defaultCurrentDate={currentDate}
