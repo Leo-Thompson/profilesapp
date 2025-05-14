@@ -15,7 +15,7 @@ import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import  Scheduler, { Resource }  from 'devextreme-react/scheduler';
-import { data } from './data.js'
+import { data } from './assets/data.js'
 
 
 
