@@ -49,7 +49,7 @@ export default function App() {
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
   const schedulerRef = React.createRef();
-  addAppointment = () => {
+  function addAppointment () {
                 schedulerRef.current.instance().addAppointment({
                 text: "",
                 startDate: new Date(),
