@@ -48,9 +48,9 @@ export default function App() {
 
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
-  this.schedulerRef = React.createRef();
-  this.addAppointment = () => {
-            this.schedulerRef.current.instance().addAppointment({
+  schedulerRef = React.createRef();
+  addAppointment = () => {
+                schedulerRef.current.instance().addAppointment({
                 text: "",
                 startDate: new Date(),
                 endDate: new Date()
@@ -114,7 +114,7 @@ export default function App() {
           defaultCurrentDate={currentDate}
           height={730}
           startDayHour={7}>
-          ref={this.schedulerRef}
+          ref={schedulerRef}
           <Editing
             allowAdding={allowAdding}
             allowDeleting={allowDeleting}
@@ -126,7 +126,7 @@ export default function App() {
         </Scheduler>
         <Button
           text="Add"
-          onClick={this.addAppointment}
+          onClick={addAppointment}
         />
       </React.Fragment>
       <Button onClick={signOut}>Sign Out</Button>
