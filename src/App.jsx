@@ -2,6 +2,7 @@ import 'devextreme/dist/css/dx.light.css';
 import { useState, useEffect } from "react";
 import React from "react";
 import { useCallback } from 'react';
+
 import {
   Button,
   Heading,
@@ -16,7 +17,7 @@ import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
-import  Scheduler, { Resource, Editing }  from 'devextreme-react/scheduler';
+import  'devextreme-react/scheduler';
 import { data } from './assets/data.js'
 
 
@@ -116,7 +117,7 @@ export default function App() {
           defaultCurrentDate={currentDate}
           height={730}
           startDayHour={7}>
-          ref={schedulerRef}
+          
           <Editing
             allowAdding={allowAdding}
             allowDeleting={allowDeleting}
