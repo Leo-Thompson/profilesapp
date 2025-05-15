@@ -54,7 +54,7 @@ export default function App() {
   const onAllowResizingChanged = useCallback((e) => setAllowResizing(e.value), []);
   const onAllowDraggingChanged = useCallback((e) => setAllowDragging(e.value), []);
   const onAllowUpdatingChanged = useCallback((e) => setAllowUpdating(e.value), []);
-  const dataURL = new URL("./assets/data.json");
+  const dataURL = new URL("../assets/data.json");
 
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
