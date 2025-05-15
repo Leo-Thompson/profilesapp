@@ -60,7 +60,7 @@ export default function App() {
       width="70%"
       margin="0 auto"
     >
-      {/*}
+      
       <Heading level={1}>My Profile</Heading>
 
       <Divider />
@@ -102,7 +102,7 @@ export default function App() {
         </Scheduler>
       <Button onClick={signOut}>Sign Out</Button>
 
-      {*/}
+      
 
       <Scheduler id="scheduler"
        timeZone="America/Los_Angeles"
