@@ -54,7 +54,7 @@ export default function App() {
   const onAllowResizingChanged = useCallback((e) => setAllowResizing(e.value), []);
   const onAllowDraggingChanged = useCallback((e) => setAllowDragging(e.value), []);
   const onAllowUpdatingChanged = useCallback((e) => setAllowUpdating(e.value), []);
-  const dataURL = new URL("src\assets\data.json");
+  
 
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
@@ -115,7 +115,7 @@ export default function App() {
           dataSource={dataURL}
           views={views}
           defaultCurrentView="week"
-          defaultCurrentDate={currentDate}
+          defaultCurrentDate={"src\assets\data.json"}
           height={730}
           startDayHour={7}>
           
