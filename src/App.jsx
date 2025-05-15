@@ -34,13 +34,27 @@ export default function App() {
 
   const currentDate = new Date();
   const views = ['week', 'month'];
-  const schedulerData = [
-    { startDate: '2018-11-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
-    { startDate: '2018-11-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
-];
+  const [allowAdding, setAllowAdding] = useState(true);
+  const [allowDeleting, setAllowDeleting] = useState(true);
+  const [allowResizing, setAllowResizing] = useState(true);
+  const [allowDragging, setAllowDragging] = useState(true);
+  const [allowUpdating, setAllowUpdating] = useState(true);
+  const onAllowAddingChanged = useCallback((e) => setAllowAdding(e.value), []);
+  const onAllowDeletingChanged = useCallback((e) => setAllowDeleting(e.value), []);
+  const onAllowResizingChanged = useCallback((e) => setAllowResizing(e.value), []);
+  const onAllowDraggingChanged = useCallback((e) => setAllowDragging(e.value), []);
+  const onAllowUpdatingChanged = useCallback((e) => setAllowUpdating(e.value), []);
 
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
+  this.schedulerRef = React.createRef();
+  this.addAppointment = () => {
+            this.schedulerRef.current.instance().addAppointment({
+                text: "",
+                startDate: new Date(),
+                endDate: new Date()
+            });
+        };
 
   useEffect(() => {
     fetchUserProfile();
@@ -90,31 +104,27 @@ export default function App() {
           </Flex>
         ))}
       </Grid>
-      <Scheduler id="scheduler"
-       timeZone="America/Los_Angeles"
-       dataSource={schedulerData}
-       views={views}
-       defaultCurrentView="week"
-       defaultCurrentDate={currentDate}
-       height={730}
-       startDayHour={9}>
-            
+      <React.Fragment>
+        <Scheduler id="scheduler"
+          timeZone="America/Los_Angeles"
+          dataSource={data}
+          views={views}
+          defaultCurrentView="week"
+          defaultCurrentDate={currentDate}
+          height={730}
+          startDayHour={7}>
+          ref={this.schedulerRef}
+          <Editing
+            allowAdding={allowAdding}
+            allowDeleting={allowDeleting}
+           allowResizing={allowResizing}
+            allowDragging={allowDragging}
+           allowUpdating={allowUpdating}
+        />
         </Scheduler>
+      </React.Fragment>
       <Button onClick={signOut}>Sign Out</Button>
 
-      
-
-      <Scheduler id="scheduler"
-       timeZone="America/Los_Angeles"
-       dataSource={data}
-       views={views}
-       defaultCurrentView="week"
-       defaultCurrentDate={currentDate}
-       height={730}
-       startDayHour={9}>
-            
-        </Scheduler>
-      
     </Flex>
 
     //no idea why adding a data source or reference breaks it but here we are
