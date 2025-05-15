@@ -31,6 +31,14 @@ const client = generateClient({
 });
 
 
+function addAppointment () {
+                schedulerRef.current.instance().addAppointment({
+                text: "",
+                startDate: new Date(),
+                endDate: new Date()
+            });
+        };
+
 export default function App() {
 
   const currentDate = new Date();
@@ -49,13 +57,7 @@ export default function App() {
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
   const schedulerRef = React.createRef();
-  function addAppointment () {
-                schedulerRef.current.instance().addAppointment({
-                text: "",
-                startDate: new Date(),
-                endDate: new Date()
-            });
-        };
+  
 
   useEffect(() => {
     fetchUserProfile();
