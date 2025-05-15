@@ -112,7 +112,7 @@ export default function App() {
       <React.Fragment>
         <Scheduler id="scheduler"
           timeZone="America/Los_Angeles"
-          dataSource={"src\assets\data.json"}
+          dataSource={"src/assets/data.json"}
           views={views}
           defaultCurrentView="week"
           defaultCurrentDate={currentDate}
