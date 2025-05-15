@@ -117,11 +117,16 @@ export default function App() {
           <Editing
             allowAdding={allowAdding}
             allowDeleting={allowDeleting}
-           allowResizing={allowResizing}
+            allowResizing={allowResizing}
             allowDragging={allowDragging}
-           allowUpdating={allowUpdating}
-        />
+            allowUpdating={allowUpdating}
+          />
+          
         </Scheduler>
+        <Button
+          text="Add"
+          onClick={this.addAppointment}
+        />
       </React.Fragment>
       <Button onClick={signOut}>Sign Out</Button>
 
